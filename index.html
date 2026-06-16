@@ -9,7 +9,6 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #fff; }
 
-  /* CORES */
   :root {
     --preto: #0d0d0d;
     --preto2: #1a1a1a;
@@ -17,7 +16,7 @@
     --laranja2: #f48c06;
     --cinza-claro: #f5f5f5;
     --cinza-medio: #e0e0e0;
-    --cinza-texto: #555;
+    --cinza-texto: #666;
     --branco: #ffffff;
   }
 
@@ -26,195 +25,217 @@
     position: sticky; top: 0; z-index: 100;
     background: var(--preto);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 40px; height: 60px;
+    padding: 0 48px; height: 60px;
     border-bottom: 2px solid var(--laranja);
   }
-  .nav-logo { color: var(--branco); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; }
+  .nav-logo { color: var(--branco); font-size: 15px; font-weight: 700; letter-spacing: 0.06em; }
   .nav-logo span { color: var(--laranja); }
-  .nav-links { display: flex; gap: 28px; }
-  .nav-links a { color: rgba(255,255,255,0.65); font-size: 13px; text-decoration: none; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: rgba(255,255,255,0.55); font-size: 13px; text-decoration: none; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--laranja); }
   .nav-cta {
     background: var(--laranja); color: #fff; font-size: 13px;
-    font-weight: 600; padding: 8px 20px; border-radius: 4px;
-    text-decoration: none; letter-spacing: 0.03em; transition: background 0.2s;
+    font-weight: 700; padding: 8px 22px; border-radius: 3px;
+    text-decoration: none; letter-spacing: 0.04em;
   }
   .nav-cta:hover { background: var(--laranja2); }
 
   /* HERO */
   .hero {
-    position: relative; min-height: 92vh;
-    display: flex; align-items: center;
-    overflow: hidden;
     background: var(--preto);
+    padding: 100px 48px 80px;
+    position: relative; overflow: hidden;
   }
-  .hero-img {
+  /* textura geométrica de fundo */
+  .hero::before {
+    content: '';
     position: absolute; inset: 0;
-    background: 
-      repeating-linear-gradient(45deg, rgba(232,93,4,0.04) 0px, rgba(232,93,4,0.04) 1px, transparent 1px, transparent 60px),
-      repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 60px),
-      linear-gradient(160deg, #222 0%, #0d0d0d 100%);
+    background:
+      repeating-linear-gradient(60deg, rgba(232,93,4,0.04) 0px, rgba(232,93,4,0.04) 1px, transparent 1px, transparent 80px),
+      repeating-linear-gradient(-60deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 80px);
+    pointer-events: none;
   }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, rgba(13,13,13,0.97) 45%, rgba(13,13,13,0.5) 100%);
+  /* acento laranja lateral */
+  .hero::after {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, transparent, var(--laranja), transparent);
   }
-  .hero-content {
-    position: relative; z-index: 2;
-    max-width: 620px; padding: 80px 60px;
-  }
+  .hero-inner { max-width: 1060px; margin: 0 auto; position: relative; z-index: 1; }
   .hero-label {
-    display: inline-block; background: var(--laranja);
-    color: #fff; font-size: 11px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,93,4,0.12); border: 1px solid rgba(232,93,4,0.3);
+    color: var(--laranja); font-size: 11px; font-weight: 700;
     letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 2px; margin-bottom: 24px;
+    padding: 6px 14px; border-radius: 2px; margin-bottom: 28px;
   }
+  .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--laranja); }
   .hero h1 {
-    font-size: 52px; font-weight: 700; color: var(--branco);
-    line-height: 1.1; margin-bottom: 20px;
+    font-size: 58px; font-weight: 800; color: var(--branco);
+    line-height: 1.08; margin-bottom: 24px; letter-spacing: -0.02em;
+    max-width: 700px;
   }
-  .hero h1 span { color: var(--laranja); }
-  .hero p {
-    font-size: 17px; color: rgba(255,255,255,0.65);
-    line-height: 1.75; margin-bottom: 36px; max-width: 480px;
+  .hero h1 em { color: var(--laranja); font-style: normal; }
+  .hero-desc {
+    font-size: 17px; color: rgba(255,255,255,0.55);
+    line-height: 1.8; max-width: 520px; margin-bottom: 40px;
   }
-  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
   .btn-primary {
-    background: var(--laranja); color: #fff;
-    font-size: 14px; font-weight: 700; padding: 14px 28px;
-    border-radius: 4px; text-decoration: none; letter-spacing: 0.04em;
-    transition: background 0.2s;
+    background: var(--laranja); color: #fff; font-size: 14px;
+    font-weight: 700; padding: 14px 30px; border-radius: 3px;
+    text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s;
   }
   .btn-primary:hover { background: var(--laranja2); }
-  .btn-secondary {
-    background: transparent; color: rgba(255,255,255,0.8);
-    font-size: 14px; font-weight: 600; padding: 14px 28px;
-    border-radius: 4px; text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.25); transition: border-color 0.2s;
+  .btn-ghost {
+    background: transparent; color: rgba(255,255,255,0.7);
+    font-size: 14px; font-weight: 600; padding: 14px 30px;
+    border-radius: 3px; text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;
   }
-  .btn-secondary:hover { border-color: var(--laranja); color: var(--laranja); }
-  .hero-badges {
-    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px;
-  }
-  .badge {
-    font-size: 12px; padding: 6px 14px; border-radius: 2px;
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05);
-    letter-spacing: 0.03em;
-  }
+  .btn-ghost:hover { border-color: var(--laranja); color: var(--laranja); }
 
-  /* NÚMEROS */
-  .numeros {
-    background: var(--laranja);
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  /* HERO CARDS (substituem a imagem) */
+  .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2px; }
+  .hero-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    padding: 22px 20px; border-top: 2px solid transparent;
+    transition: border-color 0.2s;
   }
-  .num-item { padding: 32px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.2); }
-  .num-item:last-child { border-right: none; }
-  .num-item strong { display: block; font-size: 36px; font-weight: 800; color: #fff; line-height: 1; }
-  .num-item span { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; display: block; }
+  .hero-card:hover { border-top-color: var(--laranja); }
+  .hero-card-num { font-size: 28px; font-weight: 800; color: var(--laranja); line-height: 1; margin-bottom: 6px; }
+  .hero-card-label { font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* STRIP */
+  .strip {
+    background: var(--laranja);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    border-top: none;
+  }
+  .strip-item {
+    padding: 20px 28px; border-right: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .strip-item:last-child { border-right: none; }
+  .strip-icon { font-size: 20px; opacity: 0.85; }
+  .strip-text { font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.02em; }
 
   /* SOBRE */
-  .sobre { background: var(--cinza-claro); padding: 88px 40px; }
-  .sobre-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .sobre-img { border-radius: 4px; overflow: hidden; height: 380px; }
-  .sobre-img img { width: 100%; height: 100%; object-fit: cover; }
-  .sobre-text h2 { font-size: 32px; font-weight: 700; color: var(--preto2); margin-bottom: 6px; }
-  .sobre-text h2 span { color: var(--laranja); }
-  .sobre-linha { width: 48px; height: 3px; background: var(--laranja); margin-bottom: 20px; }
-  .sobre-text p { font-size: 15px; color: var(--cinza-texto); line-height: 1.8; margin-bottom: 14px; }
-  .sobre-text p strong { color: var(--preto2); }
+  .sobre { background: var(--cinza-claro); padding: 88px 48px; }
+  .sobre-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .sobre-left h2 { font-size: 34px; font-weight: 800; color: var(--preto2); line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.02em; }
+  .sobre-left h2 em { color: var(--laranja); font-style: normal; }
+  .sobre-linha { width: 40px; height: 3px; background: var(--laranja); margin-bottom: 24px; }
+  .sobre-left p { font-size: 15px; color: var(--cinza-texto); line-height: 1.85; margin-bottom: 16px; }
+  .sobre-left p strong { color: var(--preto2); }
+  .sobre-right { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sobre-stat {
+    background: var(--branco); border: 1px solid var(--cinza-medio);
+    border-left: 3px solid var(--laranja); padding: 20px;
+  }
+  .sobre-stat strong { display: block; font-size: 28px; font-weight: 800; color: var(--laranja); line-height: 1; margin-bottom: 6px; }
+  .sobre-stat span { font-size: 12px; color: var(--cinza-texto); letter-spacing: 0.04em; line-height: 1.5; }
 
   /* SERVIÇOS */
-  .servicos { background: var(--preto); padding: 88px 40px; }
-  .sec-header { text-align: center; margin-bottom: 56px; }
-  .sec-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--laranja); margin-bottom: 12px; }
-  .sec-header h2 { font-size: 34px; font-weight: 700; color: var(--branco); }
-  .sec-header p { font-size: 15px; color: rgba(255,255,255,0.45); margin-top: 10px; }
-  .servicos-grid { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; }
+  .servicos { background: var(--preto); padding: 88px 48px; }
+  .sec-header { max-width: 1060px; margin: 0 auto 48px; }
+  .sec-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--laranja); display: block; margin-bottom: 12px; }
+  .sec-header h2 { font-size: 34px; font-weight: 800; color: var(--branco); letter-spacing: -0.02em; }
+  .sec-header.light h2 { color: var(--preto2); }
+  .sec-header p { font-size: 15px; color: rgba(255,255,255,0.4); margin-top: 10px; }
+  .sec-header.light p { color: var(--cinza-texto); }
+  .servicos-grid { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
   .service-card {
-    background: #161616; padding: 36px 28px;
-    border-top: 3px solid transparent;
-    transition: border-color 0.2s, background 0.2s;
-    cursor: default;
+    background: #141414; padding: 36px 32px;
+    border-top: 3px solid #222;
+    transition: border-color 0.25s, background 0.25s;
   }
-  .service-card:hover { border-color: var(--laranja); background: #1e1e1e; }
-  .service-num { font-size: 11px; font-weight: 700; color: var(--laranja); letter-spacing: 0.1em; margin-bottom: 16px; }
-  .service-card h3 { font-size: 16px; font-weight: 700; color: var(--branco); margin-bottom: 12px; line-height: 1.3; }
-  .service-card p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+  .service-card:hover { border-top-color: var(--laranja); background: #1a1a1a; }
+  .service-num { font-size: 11px; font-weight: 700; color: var(--laranja); letter-spacing: 0.12em; margin-bottom: 18px; }
+  .service-card h3 { font-size: 17px; font-weight: 700; color: var(--branco); margin-bottom: 12px; line-height: 1.3; }
+  .service-card p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.75; }
 
   /* DIFERENCIAIS */
-  .diferenciais { background: var(--cinza-claro); padding: 88px 40px; }
-  .dif-inner { max-width: 1000px; margin: 0 auto; }
-  .dif-inner .sec-header h2 { color: var(--preto2); }
-  .dif-inner .sec-header p { color: var(--cinza-texto); }
-  .dif-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .diferenciais { background: var(--branco); padding: 88px 48px; }
+  .dif-inner { max-width: 1060px; margin: 0 auto; }
+  .dif-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 48px; }
   .dif-item {
-    background: var(--branco); border: 1px solid var(--cinza-medio);
+    border: 1px solid var(--cinza-medio);
     border-left: 4px solid var(--laranja);
-    padding: 22px 24px; border-radius: 0 4px 4px 0;
-    display: flex; align-items: flex-start; gap: 14px;
+    padding: 24px 28px; background: var(--cinza-claro);
+    display: flex; gap: 16px; align-items: flex-start;
   }
-  .dif-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
-  .dif-text h4 { font-size: 14px; font-weight: 700; color: var(--preto2); margin-bottom: 4px; }
-  .dif-text p { font-size: 13px; color: var(--cinza-texto); line-height: 1.55; }
+  .dif-num { font-size: 28px; font-weight: 800; color: rgba(232,93,4,0.18); line-height: 1; flex-shrink: 0; }
+  .dif-body h4 { font-size: 14px; font-weight: 700; color: var(--preto2); margin-bottom: 6px; }
+  .dif-body p { font-size: 13px; color: var(--cinza-texto); line-height: 1.65; }
 
   /* ÁREA */
-  .area {
-    background: var(--preto2); padding: 64px 40px; text-align: center;
-    border-top: 2px solid var(--laranja);
-  }
-  .area h2 { font-size: 26px; font-weight: 700; color: var(--branco); margin-bottom: 8px; }
-  .area p { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
-  .area-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .area { background: var(--preto2); padding: 56px 48px; }
+  .area-inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .area-text h3 { font-size: 22px; font-weight: 700; color: var(--branco); margin-bottom: 6px; }
+  .area-text p { font-size: 14px; color: rgba(255,255,255,0.4); }
+  .area-tags { display: flex; flex-wrap: wrap; gap: 10px; }
   .area-tag {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 2px; padding: 8px 18px; font-size: 13px;
-    color: rgba(255,255,255,0.75); font-weight: 500; letter-spacing: 0.04em;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    padding: 8px 18px; font-size: 13px; color: rgba(255,255,255,0.7);
+    font-weight: 500; letter-spacing: 0.04em;
   }
 
   /* CONTATO */
-  .contato { background: var(--branco); padding: 88px 40px; }
-  .contato-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-  .contato-left h2 { font-size: 32px; font-weight: 700; color: var(--preto2); margin-bottom: 6px; }
-  .contato-left h2 span { color: var(--laranja); }
-  .contato-linha { width: 48px; height: 3px; background: var(--laranja); margin-bottom: 20px; }
-  .contato-left p { font-size: 15px; color: var(--cinza-texto); line-height: 1.8; margin-bottom: 28px; }
-  .contato-info { display: flex; flex-direction: column; gap: 16px; }
-  .contato-row { display: flex; align-items: flex-start; gap: 14px; }
-  .contato-ic { width: 40px; height: 40px; background: var(--preto); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .contato-detail strong { display: block; font-size: 14px; font-weight: 700; color: var(--preto2); }
+  .contato { background: var(--cinza-claro); padding: 88px 48px; }
+  .contato-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .contato-left h2 { font-size: 34px; font-weight: 800; color: var(--preto2); letter-spacing: -0.02em; margin-bottom: 10px; }
+  .contato-left h2 em { color: var(--laranja); font-style: normal; }
+  .contato-linha { width: 40px; height: 3px; background: var(--laranja); margin-bottom: 24px; }
+  .contato-left p { font-size: 15px; color: var(--cinza-texto); line-height: 1.8; margin-bottom: 36px; }
+  .contato-info { display: flex; flex-direction: column; gap: 18px; }
+  .contato-row { display: flex; align-items: flex-start; gap: 16px; }
+  .contato-ic {
+    width: 44px; height: 44px; background: var(--preto);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .contato-detail strong { display: block; font-size: 15px; font-weight: 700; color: var(--preto2); }
   .contato-detail span { font-size: 13px; color: var(--cinza-texto); }
-  .contato-right { background: var(--preto); border-radius: 6px; padding: 40px 36px; border-top: 3px solid var(--laranja); }
-  .contato-right h3 { font-size: 20px; font-weight: 700; color: var(--branco); margin-bottom: 6px; }
-  .contato-right p { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+  .contato-right {
+    background: var(--preto); padding: 44px 40px;
+    border-top: 3px solid var(--laranja);
+  }
+  .contato-right h3 { font-size: 22px; font-weight: 700; color: var(--branco); margin-bottom: 8px; }
+  .contato-right p { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
   .wa-btn {
     display: block; background: #25D366; color: #fff;
     font-size: 15px; font-weight: 700; padding: 16px 28px;
-    border-radius: 4px; text-decoration: none; text-align: center;
-    letter-spacing: 0.04em; margin-bottom: 12px;
-    transition: background 0.2s;
+    text-decoration: none; text-align: center;
+    letter-spacing: 0.04em; transition: background 0.2s;
   }
   .wa-btn:hover { background: #1ebe5a; }
-  .cnpj-box {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px; padding: 14px 18px; margin-top: 20px;
+  .data-box {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    padding: 16px 20px; margin-top: 14px;
   }
-  .cnpj-box small { font-size: 11px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
-  .cnpj-box span { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 600; }
+  .data-box small { font-size: 10px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 4px; }
+  .data-box span { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 600; }
 
   /* FOOTER */
-  footer { background: var(--preto); border-top: 1px solid #222; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
-  footer strong { color: rgba(255,255,255,0.55); }
+  footer {
+    background: var(--preto); border-top: 1px solid #1e1e1e;
+    padding: 28px 48px; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
+  footer strong { color: rgba(255,255,255,0.45); }
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
-    .hero-content { padding: 60px 24px; }
+    .hero { padding: 64px 24px 56px; }
     .hero h1 { font-size: 36px; }
-    .sobre-inner, .contato-inner { grid-template-columns: 1fr; }
-    .sobre-img { height: 240px; }
-    footer { flex-direction: column; text-align: center; }
+    .sobre-inner, .contato-inner { grid-template-columns: 1fr; gap: 40px; }
+    .sobre-right { grid-template-columns: 1fr 1fr; }
+    .area-inner { flex-direction: column; align-items: flex-start; }
+    footer { flex-direction: column; text-align: center; padding: 24px; }
   }
 </style>
 </head>
@@ -233,55 +254,58 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
+  <div class="hero-inner">
     <div class="hero-label">São Carlos e região – SP</div>
-    <h1>Mazzi Serviços<br><span>&amp; Manutenção</span></h1>
-    <p>Múltiplos profissionais especializados para todas as demandas da sua empresa. Serralheria, refrigeração, ar-condicionado e manutenção industrial com nota fiscal e prazo garantido.</p>
+    <h1>Mazzi Serviços<br><em>&amp; Manutenção</em></h1>
+    <p class="hero-desc">Múltiplos profissionais especializados para todas as demandas da sua empresa. Serralheria, refrigeração, ar-condicionado e manutenção industrial — em um único contato.</p>
     <div class="hero-btns">
       <a class="btn-primary" href="https://wa.me/5516991569419?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank">Solicitar orçamento</a>
-      <a class="btn-secondary" href="#servicos">Ver serviços</a>
+      <a class="btn-ghost" href="#servicos">Ver serviços</a>
     </div>
-    <div class="hero-badges">
-      <span class="badge">CNPJ 59.936.295/0001-55</span>
-      <span class="badge">Nota fiscal garantida</span>
-      <span class="badge">Pagamento após entrega</span>
-      <span class="badge">Múltiplos profissionais</span>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-num">5+</div>
+        <div class="hero-card-label">Profissionais especializados</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">48h</div>
+        <div class="hero-card-label">Prazo de resposta</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">100%</div>
+        <div class="hero-card-label">Com nota fiscal</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">R$ 0</div>
+        <div class="hero-card-label">Pagamento antecipado</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- NÚMEROS -->
-<div class="numeros">
-  <div class="num-item"><strong>5+</strong><span>Profissionais especializados</span></div>
-  <div class="num-item"><strong>48h</strong><span>Prazo de resposta</span></div>
-  <div class="num-item"><strong>100%</strong><span>Com nota fiscal</span></div>
-  <div class="num-item"><strong>0</strong><span>Pagamento antecipado</span></div>
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><span class="strip-icon">📄</span><span class="strip-text">Nota fiscal garantida</span></div>
+  <div class="strip-item"><span class="strip-icon">📋</span><span class="strip-text">Orçamento formal com CNPJ</span></div>
+  <div class="strip-item"><span class="strip-icon">🔒</span><span class="strip-text">Pagamento só após entrega</span></div>
+  <div class="strip-item"><span class="strip-icon">📅</span><span class="strip-text">Prazo garantido em contrato</span></div>
 </div>
 
 <!-- SOBRE -->
 <section class="sobre" id="sobre">
   <div class="sobre-inner">
-    <div class="sobre-img">
-      <div style="width:100%;height:100%;
-        background:
-          repeating-linear-gradient(45deg, rgba(232,93,4,0.06) 0px, rgba(232,93,4,0.06) 1px, transparent 1px, transparent 40px),
-          repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 40px),
-          linear-gradient(135deg, #1c1c1c 0%, #111 100%);
-        display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;border-radius:4px;">
-        <div style="width:72px;height:72px;border:2px solid rgba(232,93,4,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <div style="font-size:32px;opacity:0.5;">🔧</div>
-        </div>
-        <p style="color:rgba(255,255,255,0.18);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-family:Arial;">Fotos em breve</p>
-      </div>
-    </div>
-    <div class="sobre-text">
-      <h2>Sobre a <span>empresa</span></h2>
+    <div class="sobre-left">
+      <h2>Sobre a <em>empresa</em></h2>
       <div class="sobre-linha"></div>
       <p>A <strong>Mazzi Serviços & Manutenção</strong> é uma central de serviços técnicos especializados para empresas em São Carlos e região, com múltiplos profissionais prontos para atender diversas demandas em um único ponto de contato.</p>
       <p>Atuamos com serralheria, manutenção de máquinas e equipamentos, refrigeração e ar-condicionado — tudo com emissão de nota fiscal, orçamento formal e prazo cumprido.</p>
       <p><strong>Você não precisa procurar um profissional diferente para cada problema. A Mazzi resolve.</strong></p>
+    </div>
+    <div class="sobre-right">
+      <div class="sobre-stat"><strong>6</strong><span>Serviços especializados</span></div>
+      <div class="sobre-stat"><strong>5+</strong><span>Profissionais na equipe</span></div>
+      <div class="sobre-stat"><strong>48h</strong><span>Resposta ao orçamento</span></div>
+      <div class="sobre-stat"><strong>0</strong><span>Pagamento antecipado</span></div>
     </div>
   </div>
 </section>
@@ -289,7 +313,7 @@
 <!-- SERVIÇOS -->
 <section class="servicos" id="servicos">
   <div class="sec-header">
-    <div class="sec-label">O que fazemos</div>
+    <span class="sec-label">O que fazemos</span>
     <h2>Serviços especializados</h2>
     <p>Uma equipe completa para as demandas da sua empresa</p>
   </div>
@@ -330,53 +354,35 @@
 <!-- DIFERENCIAIS -->
 <section class="diferenciais">
   <div class="dif-inner">
-    <div class="sec-header">
-      <div class="sec-label">Diferenciais</div>
+    <div class="sec-header light">
+      <span class="sec-label">Diferenciais</span>
       <h2>Por que escolher a Mazzi?</h2>
       <p>Transparência e profissionalismo em cada serviço</p>
     </div>
     <div class="dif-grid">
       <div class="dif-item">
-        <div class="dif-icon">📄</div>
-        <div class="dif-text">
-          <h4>Nota fiscal em todos os serviços</h4>
-          <p>Emissão garantida com CNPJ ativo para sua empresa ter segurança jurídica.</p>
-        </div>
+        <div class="dif-num">01</div>
+        <div class="dif-body"><h4>Nota fiscal em todos os serviços</h4><p>Emissão garantida com CNPJ ativo para sua empresa ter segurança jurídica.</p></div>
       </div>
       <div class="dif-item">
-        <div class="dif-icon">📋</div>
-        <div class="dif-text">
-          <h4>Orçamento formal e detalhado</h4>
-          <p>Documento profissional com CNPJ, escopo e prazo antes de qualquer serviço.</p>
-        </div>
+        <div class="dif-num">02</div>
+        <div class="dif-body"><h4>Orçamento formal e detalhado</h4><p>Documento profissional com CNPJ, escopo e prazo antes de qualquer serviço.</p></div>
       </div>
       <div class="dif-item">
-        <div class="dif-icon">🔒</div>
-        <div class="dif-text">
-          <h4>Pagamento somente após entrega</h4>
-          <p>Você não paga nada antes. O serviço é entregue e só então emitimos a cobrança.</p>
-        </div>
+        <div class="dif-num">03</div>
+        <div class="dif-body"><h4>Pagamento somente após entrega</h4><p>Você não paga nada antes. O serviço é entregue e só então emitimos a cobrança.</p></div>
       </div>
       <div class="dif-item">
-        <div class="dif-icon">📅</div>
-        <div class="dif-text">
-          <h4>Prazo garantido em contrato</h4>
-          <p>Comprometimento formal com datas. Se houver atraso, você é avisado com antecedência.</p>
-        </div>
+        <div class="dif-num">04</div>
+        <div class="dif-body"><h4>Prazo garantido em contrato</h4><p>Comprometimento formal com datas. Se houver atraso, você é avisado com antecedência.</p></div>
       </div>
       <div class="dif-item">
-        <div class="dif-icon">🔧</div>
-        <div class="dif-text">
-          <h4>Assistência pós-entrega inclusa</h4>
-          <p>Ajustes e adequações após entrega sem custo adicional até o serviço estar 100%.</p>
-        </div>
+        <div class="dif-num">05</div>
+        <div class="dif-body"><h4>Assistência pós-entrega inclusa</h4><p>Ajustes e adequações após entrega sem custo adicional até o serviço estar 100%.</p></div>
       </div>
       <div class="dif-item">
-        <div class="dif-icon">👥</div>
-        <div class="dif-text">
-          <h4>Múltiplos profissionais</h4>
-          <p>Um único contato para diversas demandas. Serralheiro, técnico de refrigeração e mais.</p>
-        </div>
+        <div class="dif-num">06</div>
+        <div class="dif-body"><h4>Múltiplos profissionais</h4><p>Um único contato para diversas demandas. Serralheiro, técnico de refrigeração e mais.</p></div>
       </div>
     </div>
   </div>
@@ -384,16 +390,20 @@
 
 <!-- ÁREA -->
 <section class="area">
-  <h2>Área de atendimento</h2>
-  <p>Atendemos empresas em toda a região de São Carlos</p>
-  <div class="area-tags">
-    <span class="area-tag">São Carlos</span>
-    <span class="area-tag">Araraquara</span>
-    <span class="area-tag">Rio Claro</span>
-    <span class="area-tag">Ibaté</span>
-    <span class="area-tag">Descalvado</span>
-    <span class="area-tag">Porto Ferreira</span>
-    <span class="area-tag">Interior SP</span>
+  <div class="area-inner">
+    <div class="area-text">
+      <h3>Área de atendimento</h3>
+      <p>Atendemos empresas em toda a região de São Carlos</p>
+    </div>
+    <div class="area-tags">
+      <span class="area-tag">São Carlos</span>
+      <span class="area-tag">Araraquara</span>
+      <span class="area-tag">Rio Claro</span>
+      <span class="area-tag">Ibaté</span>
+      <span class="area-tag">Descalvado</span>
+      <span class="area-tag">Porto Ferreira</span>
+      <span class="area-tag">Interior SP</span>
+    </div>
   </div>
 </section>
 
@@ -401,7 +411,7 @@
 <section class="contato" id="contato">
   <div class="contato-inner">
     <div class="contato-left">
-      <h2>Entre em <span>contato</span></h2>
+      <h2>Entre em <em>contato</em></h2>
       <div class="contato-linha"></div>
       <p>Solicite seu orçamento sem compromisso. Respondemos no mesmo dia com um orçamento formal e detalhado.</p>
       <div class="contato-info">
@@ -430,14 +440,14 @@
     </div>
     <div class="contato-right">
       <h3>Solicitar orçamento</h3>
-      <p>Atendimento rápido via WhatsApp</p>
+      <p>Atendimento rápido e sem compromisso</p>
       <a class="wa-btn" href="https://wa.me/5516991569419?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank">Chamar no WhatsApp</a>
-      <div class="cnpj-box">
+      <div class="data-box">
         <small>CNPJ</small>
         <span>59.936.295/0001-55</span>
       </div>
-      <div class="cnpj-box" style="margin-top:10px;">
-        <small>Pix (CNPJ)</small>
+      <div class="data-box">
+        <small>Pix – Chave CNPJ</small>
         <span>59.936.295/0001-55</span>
       </div>
     </div>
