@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mazzi Serviços & Manutenção – São Carlos SP</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #fff; }
+
+  /* CORES */
+  :root {
+    --preto: #0d0d0d;
+    --preto2: #1a1a1a;
+    --laranja: #e85d04;
+    --laranja2: #f48c06;
+    --cinza-claro: #f5f5f5;
+    --cinza-medio: #e0e0e0;
+    --cinza-texto: #555;
+    --branco: #ffffff;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--preto);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    border-bottom: 2px solid var(--laranja);
+  }
+  .nav-logo { color: var(--branco); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; }
+  .nav-logo span { color: var(--laranja); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: rgba(255,255,255,0.65); font-size: 13px; text-decoration: none; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--laranja); }
+  .nav-cta {
+    background: var(--laranja); color: #fff; font-size: 13px;
+    font-weight: 600; padding: 8px 20px; border-radius: 4px;
+    text-decoration: none; letter-spacing: 0.03em; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--laranja2); }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 92vh;
+    display: flex; align-items: center;
+    overflow: hidden;
+    background: var(--preto);
+  }
+  .hero-img {
+    position: absolute; inset: 0;
+    background-image: url('https://www.smartfer.com.br/wp-content/uploads/2022/06/serralheria-industrial.jpg');
+    background-size: cover; background-position: center;
+    opacity: 0.22;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(13,13,13,0.97) 45%, rgba(13,13,13,0.5) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 620px; padding: 80px 60px;
+  }
+  .hero-label {
+    display: inline-block; background: var(--laranja);
+    color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 2px; margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 700; color: var(--branco);
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--laranja); }
+  .hero p {
+    font-size: 17px; color: rgba(255,255,255,0.65);
+    line-height: 1.75; margin-bottom: 36px; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--laranja); color: #fff;
+    font-size: 14px; font-weight: 700; padding: 14px 28px;
+    border-radius: 4px; text-decoration: none; letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--laranja2); }
+  .btn-secondary {
+    background: transparent; color: rgba(255,255,255,0.8);
+    font-size: 14px; font-weight: 600; padding: 14px 28px;
+    border-radius: 4px; text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25); transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--laranja); color: var(--laranja); }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px;
+  }
+  .badge {
+    font-size: 12px; padding: 6px 14px; border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05);
+    letter-spacing: 0.03em;
+  }
+
+  /* NÚMEROS */
+  .numeros {
+    background: var(--laranja);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  .num-item { padding: 32px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.2); }
+  .num-item:last-child { border-right: none; }
+  .num-item strong { display: block; font-size: 36px; font-weight: 800; color: #fff; line-height: 1; }
+  .num-item span { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; display: block; }
+
+  /* SOBRE */
+  .sobre { background: var(--cinza-claro); padding: 88px 40px; }
+  .sobre-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .sobre-img { border-radius: 4px; overflow: hidden; height: 380px; }
+  .sobre-img img { width: 100%; height: 100%; object-fit: cover; }
+  .sobre-text h2 { font-size: 32px; font-weight: 700; color: var(--preto2); margin-bottom: 6px; }
+  .sobre-text h2 span { color: var(--laranja); }
+  .sobre-linha { width: 48px; height: 3px; background: var(--laranja); margin-bottom: 20px; }
+  .sobre-text p { font-size: 15px; color: var(--cinza-texto); line-height: 1.8; margin-bottom: 14px; }
+  .sobre-text p strong { color: var(--preto2); }
+
+  /* SERVIÇOS */
+  .servicos { background: var(--preto); padding: 88px 40px; }
+  .sec-header { text-align: center; margin-bottom: 56px; }
+  .sec-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--laranja); margin-bottom: 12px; }
+  .sec-header h2 { font-size: 34px; font-weight: 700; color: var(--branco); }
+  .sec-header p { font-size: 15px; color: rgba(255,255,255,0.45); margin-top: 10px; }
+  .servicos-grid { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; }
+  .service-card {
+    background: #161616; padding: 36px 28px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .service-card:hover { border-color: var(--laranja); background: #1e1e1e; }
+  .service-num { font-size: 11px; font-weight: 700; color: var(--laranja); letter-spacing: 0.1em; margin-bottom: 16px; }
+  .service-card h3 { font-size: 16px; font-weight: 700; color: var(--branco); margin-bottom: 12px; line-height: 1.3; }
+  .service-card p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+  /* DIFERENCIAIS */
+  .diferenciais { background: var(--cinza-claro); padding: 88px 40px; }
+  .dif-inner { max-width: 1000px; margin: 0 auto; }
+  .dif-inner .sec-header h2 { color: var(--preto2); }
+  .dif-inner .sec-header p { color: var(--cinza-texto); }
+  .dif-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .dif-item {
+    background: var(--branco); border: 1px solid var(--cinza-medio);
+    border-left: 4px solid var(--laranja);
+    padding: 22px 24px; border-radius: 0 4px 4px 0;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .dif-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .dif-text h4 { font-size: 14px; font-weight: 700; color: var(--preto2); margin-bottom: 4px; }
+  .dif-text p { font-size: 13px; color: var(--cinza-texto); line-height: 1.55; }
+
+  /* ÁREA */
+  .area {
+    background: var(--preto2); padding: 64px 40px; text-align: center;
+    border-top: 2px solid var(--laranja);
+  }
+  .area h2 { font-size: 26px; font-weight: 700; color: var(--branco); margin-bottom: 8px; }
+  .area p { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+  .area-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .area-tag {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px; padding: 8px 18px; font-size: 13px;
+    color: rgba(255,255,255,0.75); font-weight: 500; letter-spacing: 0.04em;
+  }
+
+  /* CONTATO */
+  .contato { background: var(--branco); padding: 88px 40px; }
+  .contato-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contato-left h2 { font-size: 32px; font-weight: 700; color: var(--preto2); margin-bottom: 6px; }
+  .contato-left h2 span { color: var(--laranja); }
+  .contato-linha { width: 48px; height: 3px; background: var(--laranja); margin-bottom: 20px; }
+  .contato-left p { font-size: 15px; color: var(--cinza-texto); line-height: 1.8; margin-bottom: 28px; }
+  .contato-info { display: flex; flex-direction: column; gap: 16px; }
+  .contato-row { display: flex; align-items: flex-start; gap: 14px; }
+  .contato-ic { width: 40px; height: 40px; background: var(--preto); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contato-detail strong { display: block; font-size: 14px; font-weight: 700; color: var(--preto2); }
+  .contato-detail span { font-size: 13px; color: var(--cinza-texto); }
+  .contato-right { background: var(--preto); border-radius: 6px; padding: 40px 36px; border-top: 3px solid var(--laranja); }
+  .contato-right h3 { font-size: 20px; font-weight: 700; color: var(--branco); margin-bottom: 6px; }
+  .contato-right p { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+  .wa-btn {
+    display: block; background: #25D366; color: #fff;
+    font-size: 15px; font-weight: 700; padding: 16px 28px;
+    border-radius: 4px; text-decoration: none; text-align: center;
+    letter-spacing: 0.04em; margin-bottom: 12px;
+    transition: background 0.2s;
+  }
+  .wa-btn:hover { background: #1ebe5a; }
+  .cnpj-box {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px; padding: 14px 18px; margin-top: 20px;
+  }
+  .cnpj-box small { font-size: 11px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+  .cnpj-box span { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 600; }
+
+  /* FOOTER */
+  footer { background: var(--preto); border-top: 1px solid #222; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  footer strong { color: rgba(255,255,255,0.55); }
+
+  @media (max-width: 720px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 60px 24px; }
+    .hero h1 { font-size: 36px; }
+    .sobre-inner, .contato-inner { grid-template-columns: 1fr; }
+    .sobre-img { height: 240px; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MAZZI <span>SERVIÇOS</span></div>
+  <div class="nav-links">
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <a class="nav-cta" href="https://wa.me/5516991569419?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank">Solicitar orçamento</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">São Carlos e região – SP</div>
+    <h1>Mazzi Serviços<br><span>&amp; Manutenção</span></h1>
+    <p>Múltiplos profissionais especializados para todas as demandas da sua empresa. Serralheria, refrigeração, ar-condicionado e manutenção industrial com nota fiscal e prazo garantido.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://wa.me/5516991569419?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank">Solicitar orçamento</a>
+      <a class="btn-secondary" href="#servicos">Ver serviços</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge">CNPJ 59.936.295/0001-55</span>
+      <span class="badge">Nota fiscal garantida</span>
+      <span class="badge">Pagamento após entrega</span>
+      <span class="badge">Múltiplos profissionais</span>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<div class="numeros">
+  <div class="num-item"><strong>5+</strong><span>Profissionais especializados</span></div>
+  <div class="num-item"><strong>48h</strong><span>Prazo de resposta</span></div>
+  <div class="num-item"><strong>100%</strong><span>Com nota fiscal</span></div>
+  <div class="num-item"><strong>0</strong><span>Pagamento antecipado</span></div>
+</div>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-img">
+      <img src="https://www.smartfer.com.br/wp-content/uploads/2022/06/serralheria-industrial.jpg" alt="Serralheria profissional" loading="lazy">
+    </div>
+    <div class="sobre-text">
+      <h2>Sobre a <span>empresa</span></h2>
+      <div class="sobre-linha"></div>
+      <p>A <strong>Mazzi Serviços & Manutenção</strong> é uma central de serviços técnicos especializados para empresas em São Carlos e região, com múltiplos profissionais prontos para atender diversas demandas em um único ponto de contato.</p>
+      <p>Atuamos com serralheria, manutenção de máquinas e equipamentos, refrigeração e ar-condicionado — tudo com emissão de nota fiscal, orçamento formal e prazo cumprido.</p>
+      <p><strong>Você não precisa procurar um profissional diferente para cada problema. A Mazzi resolve.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="sec-header">
+    <div class="sec-label">O que fazemos</div>
+    <h2>Serviços especializados</h2>
+    <p>Uma equipe completa para as demandas da sua empresa</p>
+  </div>
+  <div class="servicos-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Serralheria e Soldagem</h3>
+      <p>Fabricação, corte, dobra e acabamento de estruturas em aço e alumínio para uso industrial e comercial.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Rampas de Acesso</h3>
+      <p>Projeto, fabricação e adaptação de rampas metálicas para galpões, indústrias e condomínios logísticos.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>Manutenção de Máquinas</h3>
+      <p>Recuperação e reforma de equipamentos industriais, carrinhos e estruturas metálicas com tratamento anticorrosivo.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <h3>Refrigeração Industrial</h3>
+      <p>Instalação, manutenção preventiva e corretiva de sistemas de refrigeração para empresas e indústrias.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <h3>Ar-Condicionado</h3>
+      <p>Instalação, limpeza, recarga e manutenção de ar-condicionado para ambientes comerciais e industriais.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <h3>Manutenção Preventiva</h3>
+      <p>Contratos de manutenção programada para empresas com visitas periódicas e atendimento prioritário.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais">
+  <div class="dif-inner">
+    <div class="sec-header">
+      <div class="sec-label">Diferenciais</div>
+      <h2>Por que escolher a Mazzi?</h2>
+      <p>Transparência e profissionalismo em cada serviço</p>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-item">
+        <div class="dif-icon">📄</div>
+        <div class="dif-text">
+          <h4>Nota fiscal em todos os serviços</h4>
+          <p>Emissão garantida com CNPJ ativo para sua empresa ter segurança jurídica.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-icon">📋</div>
+        <div class="dif-text">
+          <h4>Orçamento formal e detalhado</h4>
+          <p>Documento profissional com CNPJ, escopo e prazo antes de qualquer serviço.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-icon">🔒</div>
+        <div class="dif-text">
+          <h4>Pagamento somente após entrega</h4>
+          <p>Você não paga nada antes. O serviço é entregue e só então emitimos a cobrança.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-icon">📅</div>
+        <div class="dif-text">
+          <h4>Prazo garantido em contrato</h4>
+          <p>Comprometimento formal com datas. Se houver atraso, você é avisado com antecedência.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-icon">🔧</div>
+        <div class="dif-text">
+          <h4>Assistência pós-entrega inclusa</h4>
+          <p>Ajustes e adequações após entrega sem custo adicional até o serviço estar 100%.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-icon">👥</div>
+        <div class="dif-text">
+          <h4>Múltiplos profissionais</h4>
+          <p>Um único contato para diversas demandas. Serralheiro, técnico de refrigeração e mais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREA -->
+<section class="area">
+  <h2>Área de atendimento</h2>
+  <p>Atendemos empresas em toda a região de São Carlos</p>
+  <div class="area-tags">
+    <span class="area-tag">São Carlos</span>
+    <span class="area-tag">Araraquara</span>
+    <span class="area-tag">Rio Claro</span>
+    <span class="area-tag">Ibaté</span>
+    <span class="area-tag">Descalvado</span>
+    <span class="area-tag">Porto Ferreira</span>
+    <span class="area-tag">Interior SP</span>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="contato-inner">
+    <div class="contato-left">
+      <h2>Entre em <span>contato</span></h2>
+      <div class="contato-linha"></div>
+      <p>Solicite seu orçamento sem compromisso. Respondemos no mesmo dia com um orçamento formal e detalhado.</p>
+      <div class="contato-info">
+        <div class="contato-row">
+          <div class="contato-ic">📲</div>
+          <div class="contato-detail">
+            <strong>(16) 99156-9419</strong>
+            <span>WhatsApp – atendimento rápido</span>
+          </div>
+        </div>
+        <div class="contato-row">
+          <div class="contato-ic">📍</div>
+          <div class="contato-detail">
+            <strong>São Carlos – SP</strong>
+            <span>Atendemos no endereço do cliente</span>
+          </div>
+        </div>
+        <div class="contato-row">
+          <div class="contato-ic">🕐</div>
+          <div class="contato-detail">
+            <strong>Seg a Sex: 8h às 18h</strong>
+            <span>Sábado: 8h às 12h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contato-right">
+      <h3>Solicitar orçamento</h3>
+      <p>Atendimento rápido via WhatsApp</p>
+      <a class="wa-btn" href="https://wa.me/5516991569419?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank">Chamar no WhatsApp</a>
+      <div class="cnpj-box">
+        <small>CNPJ</small>
+        <span>59.936.295/0001-55</span>
+      </div>
+      <div class="cnpj-box" style="margin-top:10px;">
+        <small>Pix (CNPJ)</small>
+        <span>59.936.295/0001-55</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Mazzi Serviços & Manutenção</strong> — CNPJ 59.936.295/0001-55 — São Carlos, SP</p>
+  <p>Serralheria · Refrigeração · Ar-Condicionado · Manutenção Industrial</p>
+</footer>
+
+</body>
+</html>
