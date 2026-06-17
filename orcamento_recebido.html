@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitação recebida – Mazzi Serviços & Manutenção</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #f5f5f5; }
+
+  :root {
+    --preto: #0d0d0d;
+    --preto2: #1a1a1a;
+    --laranja: #e85d04;
+    --laranja2: #f48c06;
+    --cinza-texto: #666;
+  }
+
+  nav {
+    background: var(--preto); padding: 0 48px; height: 60px;
+    display: flex; align-items: center;
+    border-bottom: 2px solid var(--laranja);
+  }
+  .nav-logo { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; }
+  .nav-logo span { color: var(--laranja); }
+
+  .wrap { min-height: calc(100vh - 60px); display: flex; align-items: center; justify-content: center; padding: 40px 24px; }
+  .card {
+    background: #fff; max-width: 520px; width: 100%;
+    border-radius: 6px; padding: 48px 40px;
+    border-top: 4px solid var(--laranja);
+    text-align: center;
+  }
+  .check {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(232,93,4,0.1); border: 2px solid var(--laranja);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px; font-size: 28px; color: var(--laranja);
+  }
+  .card h1 { font-size: 24px; font-weight: 800; color: var(--preto2); margin-bottom: 12px; letter-spacing: -0.01em; }
+  .card p { font-size: 15px; color: var(--cinza-texto); line-height: 1.7; margin-bottom: 8px; }
+  .card p.small { font-size: 13px; color: #999; }
+
+  .steps {
+    background: #f5f5f5; border-radius: 6px;
+    padding: 24px 28px; margin: 28px 0; text-align: left;
+  }
+  .step { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num {
+    width: 24px; height: 24px; border-radius: 50%; background: var(--laranja);
+    color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+  }
+  .step-text { font-size: 14px; color: var(--preto2); line-height: 1.6; }
+  .step-text strong { display: block; font-weight: 700; margin-bottom: 2px; }
+  .step-text span { color: var(--cinza-texto); font-size: 13px; }
+
+  .wa-btn {
+    display: block; background: #25D366; color: #fff;
+    font-size: 15px; font-weight: 700; padding: 16px 28px;
+    border-radius: 4px; text-decoration: none; text-align: center;
+    letter-spacing: 0.02em; margin-top: 8px;
+  }
+  .wa-btn:hover { background: #1ebe5a; }
+
+  .data-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--cinza-texto); padding: 14px 0 0; border-top: 1px solid #eee; margin-top: 24px; }
+  .data-row strong { color: var(--preto2); }
+
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">MAZZI <span>SERVIÇOS</span></div>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <div class="check">✓</div>
+    <h1>Solicitação recebida!</h1>
+    <p>Recebemos seu pedido de orçamento e nossa equipe já está analisando os detalhes.</p>
+    <p class="small">Você receberá uma resposta em até 48 horas úteis.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Análise do pedido</strong>
+          <span>Nossa equipe avalia a demanda informada</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Contato via WhatsApp</strong>
+          <span>Entraremos em contato para confirmar detalhes</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>Orçamento formal</strong>
+          <span>Envio do orçamento com valores e prazo definidos</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-bottom: 16px; font-size: 14px;">Quer agilizar o atendimento? Chame direto no WhatsApp:</p>
+    <a class="wa-btn" href="https://wa.me/5516991569419?text=Olá!%20Acabei%20de%20solicitar%20um%20orçamento%20pelo%20Google%20e%20gostaria%20de%20agilizar%20o%20atendimento." target="_blank">Chamar no WhatsApp</a>
+
+    <div class="data-row">
+      <span>CNPJ</span>
+      <strong>59.936.295/0001-55</strong>
+    </div>
+    <div class="data-row" style="border-top:none; padding-top:8px;">
+      <span>Atendimento</span>
+      <strong>Seg a Sex, 8h às 18h</strong>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Mazzi Serviços & Manutenção — São Carlos, SP
+</footer>
+
+</body>
+</html>
